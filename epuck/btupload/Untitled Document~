@@ -1,0 +1,4 @@
+
+1- download the epuckuploadbt.cpp and make file from   
+2- install bluetooth library by typing the following command in termenial 
+         sudo apt-get install libbluetooth-dev

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
+        <file>file:/home/muhanad/Downloads/camer_last/CameraControl.c</file>
+        <file>file:/home/muhanad/Downloads/camer_last/motor_led/e_epuck_ports.h</file>
+        <file>file:/home/muhanad/Downloads/camer_last/I2C/e_I2C_master_module.h</file>
+        <file>file:/home/muhanad/Downloads/camer_last/uart/e_uart1_rx_char.s</file>
+        <file>file:/home/muhanad/Downloads/camer_last/uart/e_epuck_ports.inc</file>
+        <file>file:/home/muhanad/Downloads/camer_last/uart/e_uart1_tx_char.s</file>
+        <file>file:/home/muhanad/Downloads/camer_last/camera/fast_2_timer/e_interrupt.s</file>
+        <file>file:/home/muhanad/Downloads/camer_last/camera/fast_2_timer/e_timers.c</file>
+        <file>file:/home/muhanad/Downloads/camer_last/camera/fast_2_timer/e_po6030k_registers.c</file>
+        <file>file:/home/muhanad/Downloads/camer_last/camera/fast_2_timer/e_common.c</file>
+        <file>file:/home/muhanad/Downloads/camer_last/motor_led/advance_one_timer/e_motors.c</file>
+        <file>file:/home/muhanad/Downloads/camer_last/a_d/e_ad_conv.h</file>
+        <file>file:/home/muhanad/Downloads/camer_last/a_d/e_ad_conv.c</file>
+        <file>file:/home/muhanad/Downloads/camer_last/a_d/e_prox.c</file>
+        <file>file:/home/muhanad/Downloads/camer_last/utility.c</file>
+        <file>file:/home/muhanad/Downloads/camer_last/search_ball.c</file>
+        <file>file:/home/muhanad/Downloads/camer_last/runfollowball.c</file>
+    </open-files>
+</project-private>

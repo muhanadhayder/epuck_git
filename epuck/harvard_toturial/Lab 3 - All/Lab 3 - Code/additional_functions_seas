@@ -1,0 +1,59 @@
+
+//Exposure control: Automatic and manual ways
+//Auto control register 1. Page 44 in 6030k datasheet.
+//AUTOMATIC_EXPOSURE 0x00
+//USE_EXPOSURE_REGISTER 0x01
+//USE_EXT_INT_LIN_GAIN 0x02
+//USE_INT_TIME_GLOBAL_GAIN 0x03
+void e_po6030k_exposure_control(unsigned char exposure)
+{
+	unsigned char bc;
+	bc = e_po6030k_read_register(BANK_C, 0x04); //Read present register state
+	if (exposure == 0x00) 
+		bc = (bc&0b11111100)|0x00; //AUTOMATIC_EXPOSURE
+	else if (exposure == 0x01)
+		bc = (bc&0b11111100)|0x01; //USE_EXPOSURE_REGISTER
+	else if (exposure == 0x02)
+		bc = (bc&0b11111100)|0x02; //USE_EXT_INT_LIN_GAIN
+	else if (exposure == 0x03)
+		bc = (bc&0b11111100)|0x03; //USE_INT_TIME_GLOBAL_GAIN
+
+		e_po6030k_write_register(BANK_C, 0x04, bc);
+}
+
+void e_po6030k_manual_exposure_value(unsigned long exposure_value)
+{
+	e_po6030k_write_register(BANK_C, 0x2C, (exposure_value&0xFF000000)>>24); //Exposure top
+	e_po6030k_write_register(BANK_C, 0x2D, (exposure_value&0x00FF0000)>>16); //Exposure high
+	e_po6030k_write_register(BANK_C, 0x2E, (exposure_value&0x0000FF00)>>8);  //Exposure medium
+	e_po6030k_write_register(BANK_C, 0x2F, (exposure_value&0x000000FF)>>0);  //Exposure low
+}
+
+void e_po6030k_white_balance(unsigned char white_balance)
+{
+	unsigned char bc;
+	bc = e_po6030k_read_register(BANK_C, 0x04); //Read present register state
+	if (white_balance == 0x00) 
+		bc = (bc&0b11111011)|0x00; //AUTOMATIC_WHITE_BALANCE
+	else if (white_balance == 0x01)
+		bc = (bc&0b11111011)|0x04; //USE_WHITE_BALANCE_REGISTER
+
+		e_po6030k_write_register(BANK_C, 0x04, bc);
+}
+
+void e_po6030k_automatic_digital_gain(unsigned char automatic_digital_gain)
+{
+	unsigned char bc;
+	bc = e_po6030k_read_register(BANK_C, 0x05); //Read present register state
+	if (automatic_digital_gain == 0x00) 
+		bc = (bc&0b11111011)|0x00; //MANUAL GAIN
+	else if (automatic_digital_gain == 0x01)
+		bc = (bc&0b11111011)|0x04; //AUTOMATIC GAIN
+
+		e_po6030k_write_register(BANK_C, 0x05, bc);
+}
+
+unsigned int e_po6030k_mean_brightness()
+{
+	return (e_po6030k_read_register(BANK_C, 0x6A)<<8 | e_po6030k_read_register(BANK_C, 0x6B));
+}
